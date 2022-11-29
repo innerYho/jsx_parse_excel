@@ -1,6 +1,10 @@
 import React, { useState } from "react";
 import { ExcelRenderer, OutTable } from 'react-excel-renderer';
 
+const getJsDateFromExcel = excelDate => {
+    return new Date((excelDate - (25567 + 1)) * 86400 * 1000);
+};
+
 const ParseExcel = () => {
     const [cols, setCols] = useState([]);
     const [rows, setRows] = useState([]);
@@ -15,6 +19,9 @@ const ParseExcel = () => {
             else {
                 setCols(resp.cols)
                 setRows(resp.rows)
+                let parseDate = getJsDateFromExcel(resp.rows[1][8])
+                console.log(parseDate)
+                console.log(resp.rows)
                 // this.setState({
                 //     cols: resp.cols,
                 //     rows: resp.rows

@@ -13,3 +13,6 @@ npm i fork-ts-checker-webpack-plugin
 npm i tsutils
 npm i xlsx
 npm audit fix --force
+
+
+npm run start
